@@ -1,5 +1,5 @@
 //Charlie Morris
-//I create a bar chart, a scatterplot, and a line graph to represent the Dartmouth Class Date
+//I create a bar chart, a scatterplot, and a line graph to represent the Dartmouth classes data
 
 //Great graph 1
 $(document).ready(function(){
@@ -28,7 +28,7 @@ $(document).ready(function(){
                 colors.push('red');
             }
         });
-
+        
         //Actually make the Bar Chart
         //Include title and axes
         var ctx = $("#myChart1");
@@ -37,6 +37,7 @@ $(document).ready(function(){
             data: {
                 labels: categories,
                 datasets: [{
+                    label: "Average GPA",
                     data: values,
                     backgroundColor: colors
                 }]
@@ -47,7 +48,7 @@ $(document).ready(function(){
                     left: 50,
                     right: 50,
                     top: 20,                        
-                    bottom: 20
+                    bottom: 80
                     }
                 },
                 scales: {
@@ -62,13 +63,27 @@ $(document).ready(function(){
                       display: true,
                       text: 'Average GPA Points from a Class'
                     }
-                  }
+                  }            
                 },
                   plugins: {
                     title: {
                         display: true,
-                        text: 'Bar Chart Exposing Grades by Department (Blue: 500-1000 students, Green 1000-1500, Red 1500+)',
-                        fontSize: 18
+                        text: 'Bar Chart Exposing Grades by Department',
+                        fontSize: 18,              
+                        lineHeight: 1.2
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        usePointStyle: true,
+                        font: {
+                          size: 12
+                        },
+                        generateLabels: function(chart) {
+                          var labels = [ { text: '500-1000 Students', fillStyle: 'blue'}, {text: '1000-1500 Students', fillStyle: 'green' },  { text: '1500+ Students', fillStyle: 'red'} ];
+                          return labels;
+                        }
+                      }
                     }
                 }
             }
@@ -109,7 +124,7 @@ $(document).ready(function() {
           colors.push('yellow');
         } else if (row.Department == 'GOVT') {
           colors.push('black');
-        }
+        } 
       });
   
       //Actually make the Scatterplot
@@ -131,7 +146,7 @@ $(document).ready(function() {
                   left: 50,
                   right: 50,
                   top: 20,                        
-                  bottom: 20
+                  bottom: 90
                   }
               },
               scales: {
@@ -151,9 +166,22 @@ $(document).ready(function() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Scatter Plot Exploring how Course Number Relates to Grades (Blue: PHYS, Green: ECON, Red: CHEM, Yellow: BIOL, Black: GOVT)',
+                    text: 'Scatter Plot Exploring how Course Number Relates to Grades',
                     fontSize: 18,
                     lineHeight: 1.2
+                },
+                legend: {
+                  display: true,
+                  labels: {
+                    usePointStyle: true,
+                    font: {
+                      size: 12
+                    },
+                    generateLabels: function(chart) {
+                      var labels = [ { text: 'PHYS', fillStyle: 'blue'}, {text: 'ECON', fillStyle: 'green' },  { text: 'CHEM', fillStyle: 'red'}, { text: 'BIOL',  fillStyle: 'yellow' },  { text: 'GOVT', fillStyle: 'black' } ];
+                      return labels;
+                    }
+                  }
                 }
             }
         }
@@ -220,10 +248,10 @@ $.getJSON('lineGraph.json', function(data) {
     //Actually make the Line Graph
     //Include title and axes
     var ctx = document.getElementById('myChart3').getContext('2d');
-    var scatterChart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            datasets: datasets,
+          datasets: datasets,
         },
         options: {
             layout: {
@@ -240,13 +268,24 @@ $.getJSON('lineGraph.json', function(data) {
                 position: 'bottom',
                 title: {
                   display: true,                          
-                  text: 'Term'
+                  text: "Class Term"
                 },
                 ticks: {
                     stepSize: 1,
                     min: 1,
-                    max: 3
+                    max: 3,
+                    callback: function(value, index, values) {
+                      if(value === 1) {
+                          return "Fall 2021";
+                      } else if(value === 2) {
+                          return "Winter 2022";
+                      } else if(value === 3) {
+                          return "Spring 2022";
+                      } else {
+                          return value;
+                      }
                   }
+                }
               },
               y: {
                 title: {
@@ -258,7 +297,7 @@ $.getJSON('lineGraph.json', function(data) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Median GPA Changing over Time (1: Fall 2021, 2: Winter 2022, 3: Spring 2022)',
+                    text: 'Median GPA Changing over Time',
                     fontSize: 18,
                     lineHeight: 1.2
                 }
