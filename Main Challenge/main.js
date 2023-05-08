@@ -1,7 +1,7 @@
 //Charlie Morris
 //I create a bar chart, a scatterplot, and a line graph to represent the Dartmouth classes data
 
-//Great graph 1
+//Create graph 1
 $(document).ready(function(){
     // Load the data from a JSON file
     $.getJSON("barChart.json", function(data){
