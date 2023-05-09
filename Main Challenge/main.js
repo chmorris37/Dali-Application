@@ -276,11 +276,11 @@ $.getJSON('lineGraph.json', function(data) {
                     max: 3,
                     callback: function(value, index, values) {
                       if(value === 1) {
-                          return "Fall 2021";
+                          return "Fall 2021 (1)";
                       } else if(value === 2) {
-                          return "Winter 2022";
+                          return "Winter 2022 (2)";
                       } else if(value === 3) {
-                          return "Spring 2022";
+                          return "Spring 2022 (3)";
                       } else {
                           return value;
                       }
