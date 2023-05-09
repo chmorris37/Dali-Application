@@ -3,7 +3,7 @@ This is the project I made with 3 other Dartmouth students for the Dartmouth Hac
 ## Link to the Github with the code for this sample:
 https://github.com/ZackNathan/AcademIQ/tree/main
 
-## 1) Video walkthrough: 
+## 1) Video walkthrough (made as a group): 
 https://www.youtube.com/watch?v=1mcqaMI6CG8
 
 ## 2) How to run code locally:
