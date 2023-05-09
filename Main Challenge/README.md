@@ -1,7 +1,7 @@
 # Dali-Application Main Challenge (Data)
 
 ## 1) Video walkthrough: 
-https://dartmouth.zoom.us/rec/share/-CTKCyufZyj8TeeqbjZHT-HbNs473PWxvc03bQ_iJkZeQs_TUXufMSPvhd8-XmA.hXRwcGZfSpbmctET?startTime=1683601685000
+https://www.youtube.com/watch?v=x_ccwM6qf2o
 
 ## 2) How to run code locally:
 You should clone this repository and then run the html document (index.html) locally on your computer. I found it easiest to have all this code in VS code, and then to open index.html document using an extension in VS Code called "Live Server". This should allow you to locally see the graphs on your browser (for me, this worked on Google Chrome).
