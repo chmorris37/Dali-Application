@@ -1,5 +1,5 @@
 # Dali-Application Coding Sample 2 (DALI Data)
-
+This is the project I made with 3 other Dartmouth students for the Dartmouth Hackathon 2023. We won 3rd place in the competition. Our product AcademIQ (pronounced "academic") is a Chrome extension that helps students have easier access to scholarly research on topics they already love.
 ## Link to the Github with the code for this sample:
 https://github.com/ZackNathan/AcademIQ/tree/main
 
